@@ -110,7 +110,7 @@ const SummaryShopping = ({ history, showConditions = true, totalPrice = 0, promo
               name="gilad"
               color="primary" />
           }
-          label={<span>Acepta Términos y condiciones y política de tratamiento de datos</span>}
+          label={<span>Acepto Términos y condiciones y política de tratamiento de datos</span>}
         />}
 
       <div style={{ display: 'flex' }}>

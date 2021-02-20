@@ -17,6 +17,7 @@ import { addProductsAction, setFilterProductsAction, addArticlesAction, addMenuA
 import { connect } from 'react-redux'
 import { MAN, WOMAN, BOY, COLLECTIONS, US, NEWS, CONTACT, Unisex } from '../../consts/clothe-names';
 
+
 const Header = (props) => {
 
   const { products, shoppingCart, session, logoEncabezado = '' } = props
@@ -31,6 +32,7 @@ const Header = (props) => {
   const [showShoopinCartPreview, setShowShoopinCartPreview] = useState<boolean>(false)
   const [anchorEl, setAnchorEl] = useState<any>(null);
   const [mainMenuVisible, setMainMenuVisible] = useState<boolean>(true)
+  const [stateCollectionMenu, setCollectionMenu] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -168,13 +170,17 @@ const Header = (props) => {
             onPointerOver={() => {
               if (showShoopinCartPreview) return
               setShowPasarela(true)
+              setCollectionMenu(false)
               setItemHover(WOMAN)
             }}>
-            <NavLink to="/mujer" activeClassName={styles.activeRoute} onClick={() => setFilterSubmenu(null)}>
+            <NavLink to="/mujer" activeClassName={styles.activeRoute} onClick={() => setFilterSubmenu(null)}
+              onPointerOver={() => {
+                setCollectionMenu(false)
+              }}>
               <span>{WOMAN.toUpperCase()}</span>
             </NavLink>
           </li>
-          <li className={styles.item_li}
+          {/* <li className={styles.item_li}
             onPointerOver={() => {
               if (showShoopinCartPreview) return
               setShowPasarela(true)
@@ -183,7 +189,7 @@ const Header = (props) => {
             <NavLink to="/niño" activeClassName={styles.activeRoute} onClick={() => setFilterSubmenu(null)}>
               <span>{BOY.toUpperCase()}</span>
             </NavLink>
-          </li>
+          </li> */}
           <li className={styles.item_li}
             onPointerOver={() => {
               if (showShoopinCartPreview) return
@@ -193,7 +199,8 @@ const Header = (props) => {
             <NavLink to="/colecciones" activeClassName={styles.activeRoute} onClick={(e) => {
               e.preventDefault()
               setFilterSubmenu(null)
-            }}>
+
+            }} onPointerOver={() => { setCollectionMenu(true) }}>
               <span>{COLLECTIONS.toUpperCase()}</span>
             </NavLink>
           </li>
@@ -272,17 +279,19 @@ const Header = (props) => {
       </div>
       {/* LogoEncabezado */}
       <div className={styles.pasarela_products} style={{ height: showPasarela ? '270px' : 0, opacity: showPasarela ? '1' : '0' }}>
-        <div className={styles.pasarela_content}>
-          <ul className={styles.new_arrivals}>
-            <a>CATEGORÍAS</a>
-            {productTypes.map((item, i) => (
+        <div className={styles.pasarela_content} >
+          <ul className={styles.new_arrivals} >
+            {!stateCollectionMenu && <a>CATEGORÍAS</a>}
+
+            {!stateCollectionMenu && productTypes.map((item, i) => (
               <NavLink key={i} to={`/${item.categoria?.toLowerCase()}`} className={styles.item_categoria} onClick={() => {
+
                 setFilterSubmenu(item.subCategoria)
                 setShowPasarela(false)
               }}>{item.subCategoria}</NavLink>
             ))}
           </ul>
-          <ul className={styles.images_list}>
+          <ul className={styles.images_list} style={{paddingRight: stateCollectionMenu ? '18%': 0}}>
             {productTypes.slice(0, 5).map((item, i) => (
               <NavLink key={i} to={`/${item.categoria?.toLowerCase()}`} onClick={() => {
                 setFilterSubmenu(item.subCategoria)

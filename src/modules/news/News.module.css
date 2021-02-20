@@ -1,0 +1,113 @@
+.main_image_news {
+  max-height: 100vh;
+  overflow: hidden;
+}
+.main_image_news img {
+  width: 100%;
+  image-orientation: inherit;
+}
+
+.container_list_news {
+  max-width: 85%;
+  margin: 0 auto;
+  /* 
+    ##Device = Desktops
+    ##Screen = 1281px to higher resolution desktops
+  */
+  /* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+  /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+  /* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+}
+@media (min-width: 1281px) {
+  .container_list_news {
+    width: 1200px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .container_list_news {
+    width: 1010px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container_list_news {
+    width: 770px;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .container_list_news {
+    width: 90%;
+  }
+}
+.container_list_news .item_news {
+  display: flex;
+  align-items: flex-end;
+  margin: 4em 0;
+}
+.container_list_news .item_news .image_item {
+  width: 60%;
+  display: flex;
+  padding-right: 5.5em;
+  max-height: 455px;
+}
+.container_list_news .item_news .image_item img {
+  cursor: pointer;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+.container_list_news .item_news:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.container_list_news .item_news:nth-child(even) .image_item {
+  padding-left: 5.5em;
+  padding-right: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.container_list_news .item_news .content_item {
+  width: 40%;
+  cursor: pointer;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .container_list_news {
+    max-width: 100% !important;
+    padding: 0.5em;
+  }
+  .container_list_news .item_news {
+    flex-direction: column-reverse !important;
+  }
+  .container_list_news .item_news .image_item {
+    justify-content: center;
+  }
+  .container_list_news .item_news .image_item img {
+    width: 100%;
+    height: 100%;
+  }
+  .container_list_news .item_news .content_item {
+    width: 100% !important;
+    text-align: center;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
+/* Large devices (laptops/desktops, 992px and up) */
+/* Extra large devices (large laptops and desktops, 1200px and up) */

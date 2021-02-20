@@ -191,7 +191,7 @@ const PurchaseData = ({ history, products, session }: any) => {
             type={'email'}
             className={styles.subscribe_input}
             onChange={event => changeValDataForm('Correo', event.target.value)}
-            label="Correo electrónico o número de telefono móvil" />
+            label="Correo electrónico" />
           <FormControlLabel
             control={
               <Checkbox
@@ -203,7 +203,7 @@ const PurchaseData = ({ history, products, session }: any) => {
                 color="primary"
               />
             }
-            label="Desea recibir Novedades y Promociones"
+            label="Deseo recibir Novedades y Promociones"
           />
         </div>
 
