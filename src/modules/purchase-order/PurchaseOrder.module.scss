@@ -1,0 +1,28 @@
+@import "../../shared/styles/mixin.scss";
+
+.Shopping_container {
+  @include responsive-layout;
+  padding: 1em 0;
+  h4 {
+    margin: 1rem 0;
+  }
+  .data_container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: 1rem;
+    margin: 2em 0;
+    .row_priceData {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
+    .data_container {
+      display: grid;
+      grid-template-columns: 50% auto;
+      grid-gap: 1rem;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+h5 {
+  text-align: center;
+}
+
+.inputs_content {
+  margin: 0.5em 0 2em 0;
+  display: grid;
+  gap: 1em;
+
+  div {
+    width: 100%;
+  }
+}
+
+.buttons_content {
+  display: grid;
+  gap: 0.6em;
+}

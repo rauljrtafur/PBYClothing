@@ -1,0 +1,15 @@
+@import "../../shared/styles/mixin.scss";
+
+.Shopping_container {
+  @include responsive-layout;
+  padding: 1em 0;
+  .main_table {
+    margin-top: 2em;
+  }
+  .order_selected {
+    margin: 2em 0 1em 0;
+    .table_products {
+      margin-top: 2em;
+    }
+  }
+}

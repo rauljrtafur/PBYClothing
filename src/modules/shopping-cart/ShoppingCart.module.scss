@@ -1,0 +1,39 @@
+@import "../../shared/styles/mixin.scss";
+
+.container_shopping_cart {
+  margin: 2em 0;
+}
+
+.main_shopping_cart {
+  @include responsive-layout;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2em;
+  .title_section {
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .main_shopping_cart {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

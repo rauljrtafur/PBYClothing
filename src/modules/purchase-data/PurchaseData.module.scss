@@ -1,0 +1,63 @@
+@import "../../shared/styles/mixin.scss";
+
+.purchase_content {
+  @include responsive-layout;
+  display: grid;
+  grid-template-columns: 50% auto;
+  grid-gap: 2em;
+  padding: 2em 0;
+
+  form {
+    .head_contact {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+
+      span {
+        margin-top: 15px;
+        cursor: pointer;
+      }
+    }
+
+    .inputs_content {
+      margin: 1em 0 2em 0;
+      display: flex;
+      flex-direction: column;
+
+      // div {
+      //   width: 100%;
+      // }
+
+      .inputs_col2 {
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 1em;
+      }
+
+      &>* {
+        margin: 1em 0;
+      }
+    }
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .purchase_content {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

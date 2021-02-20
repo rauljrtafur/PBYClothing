@@ -1,0 +1,73 @@
+@import "../../shared/styles/mixin.scss";
+
+.about_us_image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e1e1e;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-position-y: 10%;
+  // background-image: url('https://cdn.shopify.com/s/files/1/0071/3637/8998/files/Mens-street-style-vans-hi-sk8.jpg');
+  min-height: 220px;
+}
+
+.about_us_form {
+  @include responsive-layout;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.form_container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 4em;
+  max-width: 500px;
+  margin: auto;
+
+  .inputs_content {
+    display: flex;
+    flex-direction: column;
+    margin: 2em 0;
+    & > * {
+      margin: 1em 0;
+    }
+  }
+
+  .map_container {
+    display: flex;
+    align-items: center;
+    padding: 5em;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .form_container {
+    grid-template-columns: 1fr !important;
+    .map_container {
+      padding: 0;
+      margin-bottom: 1em;
+    }
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

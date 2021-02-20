@@ -1,0 +1,24 @@
+.container_form {
+  width: 100%;
+  text-align: center;
+
+  .inputs_content {
+    margin: 0.2em 0 .5em 0;
+    display: grid;
+    gap: .5em;
+
+    div {
+      width: 100%;
+    }
+  }
+
+  .buttons_content {
+    display: grid;
+    gap: 0.6em;
+  }
+
+  h5 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
+}
