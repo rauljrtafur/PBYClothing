@@ -32,6 +32,7 @@ const Header = (props) => {
   const [showShoopinCartPreview, setShowShoopinCartPreview] = useState<boolean>(false)
   const [anchorEl, setAnchorEl] = useState<any>(null);
   const [mainMenuVisible, setMainMenuVisible] = useState<boolean>(true)
+  const [mainMenuVisibleMovil, setMainMenuVisibleMovil] = useState<boolean>(false)
   const [stateCollectionMenu, setCollectionMenu] = useState(false)
 
   const dispatch = useDispatch()
