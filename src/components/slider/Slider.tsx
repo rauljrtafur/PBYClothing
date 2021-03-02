@@ -2,19 +2,58 @@ import React from 'react'
 import styles from "./Slider.module.scss"
 import { useDispatch } from 'react-redux'
 
-import Carousel from 'react-material-ui-carousel'
+import AwesomeSlider from 'react-awesome-slider';
+import AwesomeSliderStyles from 'react-awesome-slider/src/styles';
 import { setFilterProductsAction } from '../../store/actions';
+import withAutoplay from 'react-awesome-slider/dist/autoplay';
 
 
 function Slider({ items, history }) {
 
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch();
+  const AutoplaySlider = withAutoplay(AwesomeSlider);
+// Cambios de Librería a awesome slider Carlos Hortúa
   return (
     <>
-      <Carousel
+  <AutoplaySlider 
+  cssModule={AwesomeSliderStyles}
+  className={styles.slider_container}
+  play={true}
+  cancelOnInteraction={false} 
+  interval={6000}
+  >
+    
+    {items.map((item: any, i) => {
+          return (
+
+          <div 
+          key={i} 
+          data-src={item.Imagen}
+          onClick={() => {
+                console.log(item);
+                if (!item.Genero && !item.Coleccion) {
+                  window.location.replace(item.Url)
+                  return
+                }
+
+                if (!item.Genero && item.Coleccion) {
+                  history.push({ pathname: `colecciones` })
+                  dispatch(setFilterProductsAction(item.Coleccion))
+                  return
+                }
+                history.push({ pathname: `${item.Genero.toLocaleLowerCase()}` })
+                if (!item.TipoProducto) return
+                dispatch(setFilterProductsAction(item.TipoProducto))
+              }} 
+          />
+          )
+         }
+    )}
+  </AutoplaySlider>
+
+      {/* <Carousel
         indicators={false}
-        animation={'slide'}
+        animation={'fade'}
         interval={6000}
         navButtonsAlwaysVisible={true}
         fullHeightHover={false}
@@ -23,7 +62,7 @@ function Slider({ items, history }) {
       >
         {items.map((item: any, i) => {
           return (
-            <div
+            <div-
               key={i}
               className={styles.slider_container}
               onClick={() => {
@@ -52,9 +91,11 @@ function Slider({ items, history }) {
           )
         }
         )}
-      </Carousel>
+        
+      </Carousel> */}
     </>
-  )
+  
+  );
 }
 
 export default Slider

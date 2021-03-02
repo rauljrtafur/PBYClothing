@@ -36,7 +36,7 @@ const ProductDetail = ({ history, products, shoppingCart }: any) => {
 
   useEffect(() => {
     if ((products.products as any[]).length === 0 || !dataProduct.Id_Producto) return
-    const relatedProducts = products.products.filter(item => (item.Sexo === dataProduct.Sexo && item.Id_Producto !== dataProduct.Id_Producto)).slice(0, 5)
+    const relatedProducts = products.products.filter(item => (item.Sexo === dataProduct.Sexo && item.Id_Producto !== dataProduct.Id_Producto && item.Tipo_Producto == dataProduct.Tipo_Producto)).slice(0, 3)
     setRelatedProductList(relatedProducts)
 
   }, [products, dataProduct])
@@ -93,11 +93,41 @@ const ProductDetail = ({ history, products, shoppingCart }: any) => {
         <span>{dataProduct.Tipo_Producto}</span>
       </Breadcrumbs>
 
-      <h5 style={{ textAlign: 'left' }}>{dataProduct.Nombre_Producto}</h5>
+     
 
       <div className={styles.product_detail}>
 
+         <div className={styles.product_view1}>
+           <div className={styles.list_images}>
+            {productImages.map((item, i) => (
+              <img key={i} onClick={() => {
+                setImageSelected(item)
+              }} src={item} alt={dataProduct.Nombre_Producto || '' + i + 1} />
+            ))}
+          </div>
+
+          <div className={styles.main_image}>
+            {/* {imageSelected ?
+              <img src={imageSelected} alt="" />
+              : null} */}
+            {imageSelected ?
+              <ReactImageZoom
+                img={imageSelected}
+                // scale={1.2}
+                // width={500}
+                // zoomWidth={500}
+                // zoomStyle={'opacity: 1;background-color: white;border:0px solid gray;'}
+                zoomPosition={'original'}
+              />
+              : null}
+
+          </div>
+          
+
+        </div>
+
         <div className={styles.product_info}>
+           <h5 style={{ textAlign: 'left' }}>{dataProduct.Nombre_Producto}</h5>
           <div className={styles.price}>
             <strong style={{ textDecoration: dataProduct.Aplica_Descuento ? 'line-through' : '' }}>
               <NumberFormat value={dataProduct.Precio} displayType={'text'} thousandSeparator={true} prefix={'$'} />
@@ -151,32 +181,7 @@ const ProductDetail = ({ history, products, shoppingCart }: any) => {
 
         </div>
 
-        <div className={styles.product_view1}>
-          <div className={styles.main_image}>
-            {/* {imageSelected ?
-              <img src={imageSelected} alt="" />
-              : null} */}
-            {imageSelected ?
-              <ReactImageZoom
-                img={imageSelected}
-                // scale={1.2}
-                // width={500}
-                // zoomWidth={500}
-                // zoomStyle={'opacity: 1;background-color: white;border:0px solid gray;'}
-                zoomPosition={'original'}
-              />
-              : null}
-
-          </div>
-          <div className={styles.list_images}>
-            {productImages.map((item, i) => (
-              <img key={i} onClick={() => {
-                setImageSelected(item)
-              }} src={item} alt={dataProduct.Nombre_Producto || '' + i + 1} />
-            ))}
-          </div>
-
-        </div>
+       
 
 
       </div>

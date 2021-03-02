@@ -57,15 +57,19 @@ const Header = (props) => {
 
     // Resto de categorias
     let prodFilter
+    console.log(itemHover, );
     if (itemHover === BOY) {
       prodFilter = products.products.filter(item => item.Sexo === itemHover)
+      
     } else {
       prodFilter = products.products.filter(item => item.Sexo === itemHover || item.Sexo === Unisex)
+      console.log(prodFilter);
     }
 
 
     let productTypesMap: any[] = [...new Map(prodFilter.map(item => [item.Tipo_Producto, item])).values()];
     productTypesMap = productTypesMap.map(item => {
+      // console.log(`'categoria': ${item.Sexo}, 'subCategoria': ${item.Tipo_Producto}, 'imagen': ${item.Imagen_Tipo_Producto}`);
       return { categoria: item.Sexo, subCategoria: item.Tipo_Producto, imagen: item.Imagen_Tipo_Producto }
     })
 
@@ -116,6 +120,7 @@ const Header = (props) => {
   }
 
   const setFilterSubmenu = (param: string | null) => {
+    console.log(param);
     dispatch(setFilterProductsAction(param))
   }
 
@@ -174,7 +179,7 @@ const Header = (props) => {
               <span>{WOMAN.toUpperCase()}</span>
             </NavLink>
           </li>
-          <li className={styles.item_li}
+          {/* <li className={styles.item_li}
             onPointerOver={() => {
               if (showShoopinCartPreview) return
               setShowPasarela(true)
@@ -183,7 +188,7 @@ const Header = (props) => {
             <NavLink to="/niño" activeClassName={styles.activeRoute} onClick={() => setFilterSubmenu(null)}>
               <span>{BOY.toUpperCase()}</span>
             </NavLink>
-          </li>
+          </li> */}
           <li className={styles.item_li}
             onPointerOver={() => {
               if (showShoopinCartPreview) return
@@ -275,8 +280,10 @@ const Header = (props) => {
         <div className={styles.pasarela_content}>
           <ul className={styles.new_arrivals}>
             <a>CATEGORÍAS</a>
-            {productTypes.map((item, i) => (
-              <NavLink key={i} to={`/${item.categoria?.toLowerCase()}`} className={styles.item_categoria} onClick={() => {
+            {
+            productTypes.map((item, i) => (
+              
+              <NavLink key={i} to={`/${item.categoria?.toLowerCase()=='unisex'?'unisex?s='+itemHover:item.categoria.toLowerCase()}`} className={styles.item_categoria} onClick={() => {
                 setFilterSubmenu(item.subCategoria)
                 setShowPasarela(false)
               }}>{item.subCategoria}</NavLink>
@@ -284,7 +291,7 @@ const Header = (props) => {
           </ul>
           <ul className={styles.images_list}>
             {productTypes.slice(0, 5).map((item, i) => (
-              <NavLink key={i} to={`/${item.categoria?.toLowerCase()}`} onClick={() => {
+              <NavLink key={i} to={`/${item.categoria?.toLowerCase()=='unisex'?'unisex?s='+itemHover:item.categoria.toLowerCase()}`} onClick={() => {
                 setFilterSubmenu(item.subCategoria)
                 setShowPasarela(false)
                 // history.push({ pathname: `/${item.Sexo}` })
@@ -319,7 +326,7 @@ const Header = (props) => {
               <NavLink to="/carrito-de-compras" activeClassName={styles.activeRoute}>
                 <Button color="primary" style={{ width: '100%', marginTop: '2em' }} onClick={() => {
                   // history.push({ pathname: '/datos-pago' })
-                }} variant="contained" disabled={shoppingCart.products.length === 0}>Carito de Compras</Button>
+                }} variant="contained" disabled={shoppingCart.products.length === 0}>Carrito de Compras</Button>
               </NavLink>
             </div>
           </div>

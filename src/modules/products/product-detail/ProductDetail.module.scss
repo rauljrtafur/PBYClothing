@@ -1,148 +1,142 @@
 @import "../../../shared/styles/mixin.scss";
-
 .imageModal {
-  width: 100%;
+    width: 100%;
 }
 
 .product_detail_container {
-  @include responsive-layout;
-
-  .product_detail {
-    display: grid;
-    grid-template-columns: 450px auto;
-    grid-gap: 0.4em;
-    margin: 1em 0 2em 0;
-
-    .product_info {
-      h5 {
-        text-align: left;
-      }
-      .price {
-        font-size: 1.4em;
-        font-weight: bold;
-        display: flex;
-        justify-content: space-between;
-        .price_sale {
-          color: red;
-        }
-      }
-    }
-    .product_view1 {
-      display: flex;
-      .main_image {
-        img {
-          width: 100% !important;
-          height: auto;
-        }
-      }
-      .list_images {
-        img {
-          max-width: 100px;
-        }
-      }
-    }
-
-    .product_info {
-      padding-right: 1.4em;
-
-      .main_data {
+    @include responsive-layout;
+    .product_detail {
         display: grid;
-        margin: 1em 0;
-        gap: 0.1em;
-        // grid-template-columns: 100px max-content;
-      }
-
-      .sizes {
-        display: flex;
-        align-items: center;
-        margin: 1em 0;
-
-        .sizes_container {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
+        grid-template-columns: 450px 450px;
+        grid-gap: 5.4em;
+        margin: 1em 0 3em 0;
+        .product_info {
+            h5 {
+                text-align: left;
+            }
+            .price {
+                font-size: 1.4em;
+                font-weight: bold;
+                display: flex;
+                justify-content: space-between;
+                .price_sale {
+                    color: red;
+                }
+            }
         }
-
-        .sizes_list {
-          margin-left: 0.3em;
-          .button_active {
-            background: black;
-            color: white;
-          }
+        .product_view1 {
+            display: flex;
+            .main_image {
+                img {
+                    width: 100% !important;
+                    height: auto;
+                }
+            }
+            .list_images {
+                margin-right: 0.4em;
+                img {
+                    max-width: 100px;
+                }
+            }
         }
-      }
-
-      .colors {
-        display: flex;
-        align-items: center;
-        .colors_list {
-          margin-left: 0.3em;
+        .product_info {
+            padding-right: 1.4em;
+            .main_data {
+                display: grid;
+                margin: 1em 0;
+                gap: 0.1em;
+                // grid-template-columns: 100px max-content;
+            }
+            .sizes {
+                display: flex;
+                align-items: center;
+                margin: 1em 0;
+                .sizes_container {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .sizes_list {
+                    margin-left: 0.3em;
+                    .button_active {
+                        background: black;
+                        color: white;
+                    }
+                }
+            }
+            .colors {
+                display: flex;
+                align-items: center;
+                .colors_list {
+                    margin-left: 0.3em;
+                }
+            }
+            .buttons {
+                // display: grid;
+                // grid-template-columns: 1fr 1fr;
+                // gap: 1em;
+                button {
+                    width: 100%;
+                }
+            }
         }
-      }
-      .buttons {
-        // display: grid;
-        // grid-template-columns: 1fr 1fr;
-        // gap: 1em;
-        button {
-          width: 100%;
-        }
-      }
     }
-  }
-
-  .title_related_products {
-    margin: 3em 0 1em 0;
-    display: flex;
-    flex-direction: column;
-    * {
-      margin: 0;
+    .title_related_products {
+        margin: 3em 0 1em 0;
+        display: flex;
+        flex-direction: column;
+        * {
+            margin: 0;
+        }
     }
-  }
-
-  .related_products {
-  }
+    .related_products {}
 }
 
 
 /* Extra small devices (phones, 600px and down) */
+
 @media only screen and (max-width: 600px) {
-  .product_detail {
-    max-height: max-content !important;
-    grid-template-columns: 100% !important;
-    .product_info {
-      padding: 0 !important;
-    }
-    .product_view1 {
-      flex-direction: column;
-      .main_image {
-        img {
-          width: 100% !important;
-          height: 50%;
-          max-height: 30em;
+    .product_detail {
+        max-height: max-content !important;
+        grid-template-columns: 100% !important;
+        .product_info {
+            padding: 0 !important;
         }
-      }
-      .list_images {
-        img {
-          max-width: 70px !important;
+        .product_view1 {
+            flex-direction: column;
+            .main_image {
+                img {
+                    width: 100% !important;
+                    height: 50%;
+                    max-height: 30em;
+                }
+            }
+            .list_images {
+                img {
+                    max-width: 70px !important;
+                }
+            }
         }
-      }
     }
-  }
 }
+
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-}
+
+@media only screen and (min-width: 600px) {}
+
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-}
+
+@media only screen and (min-width: 768px) {}
+
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-}
+
+@media only screen and (min-width: 992px) {}
+
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-}
+
+@media only screen and (min-width: 1200px) {}

@@ -1,89 +1,94 @@
 .list_products_container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 1em;
-  row-gap: 2em;
-  margin: 2em 0;
-
-  .item_product {
-    .image_product {
-      cursor: pointer;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      // max-height: 700px;
-      .sale_content {
-        background: red;
-        color: white;
-        position: absolute;
-        padding: 4px 10px;
-        left: 0;
-        z-index: 1;
-      }
-      img {
-        width: 100%;
-        height: auto;
-        transition: all 0.7s ease;
-      }
-      &:hover {
-        img {
-          transform: scale(1.2);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1em;
+    row-gap: 2em;
+    margin: 2em 0;
+    .item_product {
+        .image_product {
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            // max-height: 700px;
+            .sale_content {
+                background: red;
+                color: white;
+                position: absolute;
+                padding: 4px 10px;
+                left: 0;
+                z-index: 1;
+            }
+            img {
+                width: 100%;
+                height: auto;
+                transition: all 0.7s ease;
+            }
+            &:hover {
+                img {
+                    transform: scale(1.2);
+                }
+                .button_container {
+                    bottom: 0 !important;
+                }
+            }
+            .button_container {
+                transition: all 0.3s;
+                position: absolute;
+                width: 100%;
+                padding: 1em 0;
+                // background: #00000061;
+                display: flex;
+                justify-content: center;
+                bottom: -80px;
+            }
         }
-        .button_container {
-          bottom: 0 !important;
+        .info_product {
+            display: flex;
+            flex-direction: column;
+            .prices {
+                display: flex;
+                justify-content: space-between;
+                .normal_price {
+                    // text-decoration: line-through;
+                }
+                .price_sale {
+                    color: red;
+                }
+            }
         }
-      }
-      .button_container {
-        transition: all 0.3s;
-        position: absolute;
-        width: 100%;
-        padding: 1em 0;
-        // background: #00000061;
-        display: flex;
-        justify-content: center;
-        bottom: -80px;
-      }
     }
-    .info_product {
-      display: flex;
-      flex-direction: column;
-      .prices {
-        display: flex;
-        justify-content: space-between;
-        .normal_price {
-          // text-decoration: line-through;
-        }
-        .price_sale {
-          color: red;
-        }
-      }
-    }
-  }
 }
+
 
 /* Extra small devices (phones, 600px and down) */
+
 @media only screen and (max-width: 600px) {
-  .list_products_container {
-    grid-template-columns: 1fr;
-  }
-  .image_product {
-    max-height: 400px;
-  }
+    .list_products_container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+    .image_product {
+        max-height: 400px;
+    }
 }
+
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-}
+
+@media only screen and (min-width: 600px) {}
+
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-}
+
+@media only screen and (min-width: 768px) {}
+
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-}
+
+@media only screen and (min-width: 992px) {}
+
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-}
+
+@media only screen and (min-width: 1200px) {}

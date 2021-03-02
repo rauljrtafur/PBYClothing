@@ -13,6 +13,8 @@ const Products = (props) => {
 
   let match = useRouteMatch();
 
+  let genreU:any;
+
   const [productsList, setProductsList] = useState<any[]>([])
   const [menuSelected, setMenuSelected] = useState<any>({})
   const [nameCollection, setNameCollection] = useState<any>(null)
@@ -20,9 +22,14 @@ const Products = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0)
     if ((products.products as any[]).length === 0) return
-    const currentProduct = (history.location.pathname as string).split('/')[1]
-    if (menu.menu.length > 0)
-      applyFilterProducts(currentProduct)
+    let currentProduct = (history.location.pathname as string).split('/')[1];
+     const query = new URLSearchParams(history.location.search);
+    genreU=query.get('s');
+    console.log(currentProduct, menu,genreU, typeof genreU);
+    if (menu.menu.length > 0){
+      applyFilterProducts(currentProduct);
+    }
+      
   }, [products, menu.menu])
 
   // Cambio de filtro Nombre Coleccion
@@ -32,6 +39,7 @@ const Products = (props) => {
 
     if (currentProduct === COLLECTIONS.toLowerCase()) {
       const newProducts = products.products.filter(item => (item.Nombre_Coleccion as string) === products.filter)
+      console.log(newProducts);
       setProductsList(newProducts)
       if (newProducts[0]) setNameCollection(newProducts[0])
     } else {
@@ -45,6 +53,7 @@ const Products = (props) => {
   const applyFilterProducts = (param: string) => {
     let filter = ''
     let filter2 = ''
+    console.log(param);
     switch (param) {
       case MAN.toLowerCase():
         filter = MAN
@@ -59,6 +68,7 @@ const Products = (props) => {
         break;
       case COLLECTIONS.toLowerCase():
         filter = COLLECTIONS
+        console.log(products.products);
         setProductsList(products.products)
         break;
       default:
@@ -76,11 +86,18 @@ const Products = (props) => {
     }
 
     // seleccionar imagen banner
-    console.log(menuSelected);
+    let menuFind ='';
+    // switch(genreU){
+    //   case ''
 
-    const menuFind = menu.menu.find(item => item.Nombre_Menu === filter)
-
-    if (menuFind) setMenuSelected(menuFind)
+    // }
+    menuFind=menu.menu.find(item => item.Nombre_Menu === filter)==undefined?menu.menu.find(item => item.Nombre_Menu === genreU):menu.menu.find(item => item.Nombre_Menu === filter);
+  
+     console.log(menuFind , menu.menu, filter);
+    if (menuFind) {
+      console.log(menuFind);
+      setMenuSelected(menuFind);
+    }
 
   }
 

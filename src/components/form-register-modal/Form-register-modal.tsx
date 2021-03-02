@@ -40,7 +40,7 @@ const FormRegisterModal = (props: any) => {
     <ImageCustomModal show={show} onClosed={() => onClosed(false)}>
       <div className={styles.container_form}>
         <h5>¡RECIBE OFERTAS EXCLUSIVAS!</h5>
-        <p>Regístrate para recibir correos electronicos y estar al tanto de ofertas y noticias especiales para la manada.</p>
+        <p>Regístrate para recibir correos electrónicos y estar al tanto de ofertas y noticias especiales para la manada.</p>
         <ValidatorForm onSubmit={handleSubmit}>
           <div className={styles.inputs_content}>
             <TextValidator

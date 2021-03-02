@@ -88,7 +88,9 @@ const App = () => {
                   <Route exact path="/" component={Home} />
                   <Route exact path="/noticias" component={News} />
                   <Route exact path="/noticias/:newId" component={NewsDetail} />
-                  <Route path="/unisex" component={Products} />
+                  <Route path="/unisex-H" component={Products} />
+                  <Route path="/unisex-M" component={Products} />
+                   <Route path="/unisex" component={Products} />
                   <Route path="/hombre" component={Products} />
                   <Route path="/mujer" component={Products} />
                   <Route path="/niño" component={Products} />
