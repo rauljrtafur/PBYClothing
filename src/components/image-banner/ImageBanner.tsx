@@ -6,7 +6,7 @@ const ImageBanner = (props: any) => {
   const { title, subtitle, imgSrc } = props
 
   return (
-    <div className={styles.main_image_banner}>
+    <div className={styles.main_image_banner} >
 
       {/* <div className={styles.banner_title}>
         <div className={styles.new_title_content}>
@@ -16,6 +16,7 @@ const ImageBanner = (props: any) => {
       </div> */}
 
       <img src={imgSrc} alt="" />
+      <br/>
     </div>
   )
 }

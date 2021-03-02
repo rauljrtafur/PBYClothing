@@ -41,11 +41,11 @@ const News = (props) => {
         imgSrc={menuSelected.Imagen}
       // imgSrc={encabezado}
       />
-      <div className={styles.container_list_news}>
+      <div className={styles.container_list_news} >
         {itemsNews.map((item, i) => (
           <div key={i} className={styles.item_news}>
-            <div className={styles.image_item}>
-              <img
+            <div className={styles.image_item} >
+              <img 
                 src={item.Imagen}
                 alt={item.Imagen}
                 onClick={() => {

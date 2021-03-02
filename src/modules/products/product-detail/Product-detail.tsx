@@ -77,7 +77,7 @@ const ProductDetail = ({ history, products, shoppingCart }: any) => {
   }
 
   return (
-    <div className={styles.product_detail_container}>
+    <div className={styles.product_detail_container} >
 
       <ImageCustomModal show={showModal} onClosed={() => setShowModal(false)} showImage={false}>
         <img src="https://www.pbyclothing.com/recursos/images/TALLAS.png" alt="" className={styles.imageModal} />
@@ -129,6 +129,7 @@ const ProductDetail = ({ history, products, shoppingCart }: any) => {
         <div className={styles.product_info}>
            <h5 style={{ textAlign: 'left' }}>{dataProduct.Nombre_Producto}</h5>
           <div className={styles.price}>
+            
             <strong style={{ textDecoration: dataProduct.Aplica_Descuento ? 'line-through' : '' }}>
               <NumberFormat value={dataProduct.Precio} displayType={'text'} thousandSeparator={true} prefix={'$'} />
             </strong>
@@ -192,7 +193,7 @@ const ProductDetail = ({ history, products, shoppingCart }: any) => {
       </div>
 
       {/* <div className={styles.related_products}> */}
-      <ProductList list={relatedProductList} onClickItem={(sexo: string, id: number) => {
+      <ProductList list={relatedProductList.splice(0,2)} onClickItem={(sexo: string, id: number) => {
         history.push({ pathname: `/${sexo.toLowerCase()}/${id}` })
         window.scrollTo(0, 0)
       }} />
