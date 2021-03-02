@@ -87,10 +87,6 @@ const Products = (props) => {
 
     // seleccionar imagen banner
     let menuFind ='';
-    // switch(genreU){
-    //   case ''
-
-    // }
     menuFind=menu.menu.find(item => item.Nombre_Menu === filter)==undefined?menu.menu.find(item => item.Nombre_Menu === genreU):menu.menu.find(item => item.Nombre_Menu === filter);
   
      console.log(menuFind , menu.menu, filter);
