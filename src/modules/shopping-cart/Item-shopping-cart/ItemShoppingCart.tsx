@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './ItemShoppingCart.module.scss'
+import { NavLink } from 'react-router-dom';
 
 import imagePE1 from '../../../assets/images_pby/ProductoEspecifico/1.jpeg'
 import Select from '@material-ui/core/Select'
@@ -86,6 +87,8 @@ export const ItemShoppingCart = (props: any) => {
           ) : null}
 
         </div>
+
+        
 
       </div>
 

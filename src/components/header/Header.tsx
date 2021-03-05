@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './Header.module.scss'
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import FormRegisterModal from '../form-register-modal/Form-register-modal';
 import { FiUser, FiShoppingCart, FiLogIn } from "react-icons/fi";
 import { VscThreeBars, VscClose } from "react-icons/vsc";
@@ -16,6 +16,7 @@ import { useDispatch } from 'react-redux'
 import { addProductsAction, setFilterProductsAction, addArticlesAction, addMenuAction, setShowLoginAction, setProductsAction, setSessionAction } from '../../store/actions';
 import { connect } from 'react-redux'
 import { MAN, WOMAN, BOY, COLLECTIONS, US, NEWS, CONTACT, Unisex } from '../../consts/clothe-names';
+import { createLogicalOr } from 'typescript';
 
 
 const Header = (props) => {
@@ -34,8 +35,10 @@ const Header = (props) => {
   const [mainMenuVisible, setMainMenuVisible] = useState<boolean>(true)
   const [mainMenuVisibleMovil, setMainMenuVisibleMovil] = useState<boolean>(false)
   const [stateCollectionMenu, setCollectionMenu] = useState(false)
-
-  const dispatch = useDispatch()
+  const targetRef = useRef();
+  const [dimensions, setDimensions] = useState({ width:0, height: 0 });
+  const dispatch = useDispatch();
+  const wd=window.innerWidth;
 
   useEffect(() => {
     getAllProducts()
@@ -45,7 +48,22 @@ const Header = (props) => {
     setSessionSaved()
   }, [])
 
+
+
   useEffect(() => {
+    
+
+    // if (targetRef.current) {
+    //   setDimensions({
+    //     width: targetRef.current.offsetWidth,
+    //     height: targetRef.current.offsetHeight
+    //   });
+
+    //   console.log(targetRef.current.offsetWidth);
+    // }
+
+    console.log(wd);
+
     if (products.products.length === 0) return
 
     // filtro para colecciones
@@ -128,7 +146,7 @@ const Header = (props) => {
   }
 
   return (
-    <header className={styles.header} onPointerLeave={() => setShowPasarela(false)}>
+    <header className={styles.header} onPointerLeave={() => setShowPasarela(false)} >
 
       <LoginModal show={showLoginModal}
         onClosed={() => {
@@ -315,7 +333,7 @@ const Header = (props) => {
 
 
       {showShoopinCartPreview ? (
-        <div className={styles.shopping_content} onClick={() => setShowShoopinCartPreview(false)}>
+        <div className={styles.shopping_content}  onClick={() => setShowShoopinCartPreview(false)}>
           <div className={styles.container}>
             <div className={styles.body_shopping}>
               <div className={styles.header_shopping}>
@@ -331,11 +349,18 @@ const Header = (props) => {
               ))}
             </div>
             <div>
-              <NavLink to="/carrito-de-compras" activeClassName={styles.activeRoute}>
+
+            <Link to="/carrito-de-compras">
+            <Button color="primary" style={{ width: '100%', marginTop: '2em', marginBottom: wd<=450?'7em':'0em' }} onClick={() => {
+                  // history.push({ pathname: '/datos-pago' })
+                }} variant="contained" disabled={shoppingCart.products.length === 0}>Carrito de Compras</Button>
+            </Link>
+
+              {/* <NavLink to="/carrito-de-compras" activeClassName={styles.activeRoute}>
                 <Button color="primary" style={{ width: '100%', marginTop: '2em' }} onClick={() => {
                   // history.push({ pathname: '/datos-pago' })
                 }} variant="contained" disabled={shoppingCart.products.length === 0}>Carrito de Compras</Button>
-              </NavLink>
+              </NavLink> */}
             </div>
           </div>
         </div>
