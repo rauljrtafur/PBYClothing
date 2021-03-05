@@ -98,13 +98,6 @@ const ProductDetail = ({ history, products, shoppingCart }: any) => {
       <div className={styles.product_detail}>
 
          <div className={styles.product_view1}>
-           <div className={styles.list_images}>
-            {productImages.map((item, i) => (
-              <img key={i} onClick={() => {
-                setImageSelected(item)
-              }} src={item} alt={dataProduct.Nombre_Producto || '' + i + 1} />
-            ))}
-          </div>
 
           <div className={styles.main_image}>
             {/* {imageSelected ?
@@ -122,6 +115,16 @@ const ProductDetail = ({ history, products, shoppingCart }: any) => {
               : null}
 
           </div>
+
+           <div className={styles.list_images}>
+            {productImages.map((item, i) => (
+              <img key={i} onClick={() => {
+                setImageSelected(item)
+              }} src={item} alt={dataProduct.Nombre_Producto || '' + i + 1} />
+            ))}
+          </div>
+
+
           
 
         </div>

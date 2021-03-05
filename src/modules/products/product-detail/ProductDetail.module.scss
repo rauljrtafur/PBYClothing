@@ -7,7 +7,7 @@
     @include responsive-layout;
     .product_detail {
         display: grid;
-        grid-template-columns: 450px 450px;
+        grid-template-columns: 600px 450px;
         grid-gap: 5.4em;
         margin: 1em 0 3em 0;
         .product_info {
@@ -28,8 +28,9 @@
             display: flex;
             .main_image {
                 img {
-                    width: 100% !important;
-                    height: auto;
+                    max-width: 530px !important;
+                    height: auto !important;
+                    margin-right: .5em;
                 }
             }
             .list_images {
