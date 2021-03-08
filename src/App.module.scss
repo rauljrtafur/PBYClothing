@@ -2,6 +2,10 @@
     padding-top: 70px;
 }
 
+.Sidebar {
+    display: none;
+}
+
 
 /* Extra small devices (phones, 600px and down) */
 
@@ -9,5 +13,8 @@
     .main_container {
         padding-top: 0;
         // display: none;
+    }
+    .Sidebar {
+        display: block;
     }
 }

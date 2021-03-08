@@ -3,7 +3,7 @@ import { Switch, Route, HashRouter } from "react-router-dom";
 import styles from "./App.module.scss"
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 
-import { Header, Footer, Contact } from './components';
+import { Header, Footer, Contact, Sidebar} from './components';
 import Home from './modules/home/Home';
 import Products from './modules/products/Products';
 import News from './modules/news/News';
@@ -66,6 +66,12 @@ const App = () => {
     getDataCompany()
   }, [])
 
+  const [toggled, setToggled] = useState(true);
+
+  const handleToggleSidebar = (value) => {
+    setToggled(value);
+  };
+
   const [dataCompany, setDataCompany] = useState<any>({})
 
   const getDataCompany = () => {
@@ -83,6 +89,15 @@ const App = () => {
           <Provider store={store}>
             <Switch>
               <>
+
+              <div className={styles.Sidebar}>
+              <Sidebar
+                collapsed={false}
+                toggled={toggled}
+                handleToggleSidebar={handleToggleSidebar}
+              />
+              </div>
+
                 <Header logoEncabezado={dataCompany.LogoEncabezado} />
                 <div className={styles.main_container}>
                   <Route exact path="/" component={Home} />

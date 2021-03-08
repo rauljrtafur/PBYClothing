@@ -8,6 +8,7 @@ import { ProductList } from "./product-list/ProductList";
 import ImageBanner from "./image-banner/ImageBanner";
 import RegisterModal from "./register-modal/Register-modal";
 import ImageCustomModal from "./image-custom-modal/ImageCustomModal";
+import Sidebar from './sidebar/Sidebar'
 
 export {
     Header,
@@ -19,5 +20,6 @@ export {
     ProductList,
     ImageBanner,
     RegisterModal,
-    ImageCustomModal
+    ImageCustomModal,
+    Sidebar
 }

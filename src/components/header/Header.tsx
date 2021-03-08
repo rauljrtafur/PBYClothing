@@ -172,6 +172,10 @@ const Header = (props) => {
           }
         </div>
 
+        <div className={styles.Hamburguesa} >          
+           <VscThreeBars />         
+        </div>
+
         <div className={styles.image_content}
           onPointerOver={() => setShowPasarela(false)}>
           <NavLink to="/">

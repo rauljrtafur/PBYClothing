@@ -25,6 +25,9 @@
             font-size: 2em;
             display: none;
         }
+        .Hamburguesa {
+            display: none;
+        }
         .activeRoute {
             background-color: #141414;
             span {
@@ -268,9 +271,14 @@
         }
     }
     .header_container {
-        grid-template-columns: 84% 14% 12% !important;
-        height: auto !important;
+        grid-template-columns: 14% 62% 21% !important;
+        height: 43px !important;
         width: 100% !important;
+        .Hamburguesa {
+            display: block !important;
+            font-size: 2em !important;
+            margin-left: 0.4em;
+        }
         .iconButtonMenu {
             display: none !important;
         }
