@@ -13,6 +13,7 @@ import Profile from './modules/profile/Profile';
 import shoppingHistory from './modules/shopping-history/shopping-history';
 import AboutUs from './modules/about-us/AboutUs';
 import NewsDetail from './modules/news/news-detail/News-detail';
+import { VscThreeBars, VscClose } from "react-icons/vsc";
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css'
@@ -66,7 +67,7 @@ const App = () => {
     getDataCompany()
   }, [])
 
-  const [toggled, setToggled] = useState(true);
+  const [toggled, setToggled] = useState(false);
 
   const handleToggleSidebar = (value) => {
     setToggled(value);
@@ -98,7 +99,12 @@ const App = () => {
               />
               </div>
 
+
                 <Header logoEncabezado={dataCompany.LogoEncabezado} />
+                
+              <div className={styles.Hamburguesa} onClick={handleToggleSidebar} >          
+               <VscThreeBars  />         
+              </div>
                 <div className={styles.main_container}>
                   <Route exact path="/" component={Home} />
                   <Route exact path="/noticias" component={News} />

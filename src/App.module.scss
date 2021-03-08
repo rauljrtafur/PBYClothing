@@ -6,6 +6,12 @@
     display: none;
 }
 
+.Hamburguesa {
+    display: none;
+    font-size: 2em !important;
+    margin-left: 0.4em;
+}
+
 
 /* Extra small devices (phones, 600px and down) */
 
@@ -16,5 +22,13 @@
     }
     .Sidebar {
         display: block;
+    }
+    .Hamburguesa {
+        display: flex !important;
+        font-size: 2em !important;
+        margin-left: 0.4em;
+        position: absolute;
+        z-index: 1001;
+        top: 6px
     }
 }

@@ -43,9 +43,9 @@ const Sidebar = ({toggled, handleToggleSidebar}) =>{
                 <MenuItem>Component 2</MenuItem>
                 </SubMenu>
             </Menu>
-            </ProSidebar>;
+            </ProSidebar>
       </>
-    )
+    );
 }
 
 function mapStateToProps(state) {

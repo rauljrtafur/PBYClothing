@@ -173,7 +173,7 @@ const Header = (props) => {
         </div>
 
         <div className={styles.Hamburguesa} >          
-           <VscThreeBars />         
+           <VscThreeBars color={'#ffffff'}/>         
         </div>
 
         <div className={styles.image_content}
