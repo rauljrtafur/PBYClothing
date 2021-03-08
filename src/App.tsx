@@ -96,6 +96,7 @@ const App = () => {
                 collapsed={false}
                 toggled={toggled}
                 handleToggleSidebar={handleToggleSidebar}
+                dataCompany={dataCompany}
               />
               </div>
 

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux'
+import styles from './Sidebar.module.scss'
+import { NavLink, Link } from 'react-router-dom';
 
 import {
     ProSidebar,
@@ -11,14 +13,20 @@ import {
     SidebarContent,
   } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
+import { MAN, WOMAN, BOY, COLLECTIONS, US, NEWS, CONTACT, Unisex } from '../../consts/clothe-names';
+import Footer from '../footer/Footer';
 
-const Sidebar = ({toggled, handleToggleSidebar}) =>{
+const Sidebar = ({toggled, handleToggleSidebar, dataCompany}) =>{
+
+
     return (
       <>
         <ProSidebar
         toggled={toggled}
         breakPoint="md"
         onToggle={handleToggleSidebar}
+        color="#000000"
+        className={styles.pro_sidebar}
         >
             <SidebarHeader>
         <div
@@ -33,17 +41,48 @@ const Sidebar = ({toggled, handleToggleSidebar}) =>{
             whiteSpace: 'nowrap',
           }}
         >
-          Titulo
+          MENÚ PITBULLYING
         </div>
       </SidebarHeader>
+      <SidebarContent>
             <Menu iconShape="circle">
-                <MenuItem >Dashboard</MenuItem>
-                <SubMenu title="Components" >
-                <MenuItem>Component 1</MenuItem>
-                <MenuItem>Component 2</MenuItem>
-                </SubMenu>
+                <MenuItem title={MAN.toUpperCase()} >
+                  <NavLink to="/hombre" activeClassName={styles.activeRoute}>
+                      <span>{MAN.toUpperCase()}</span>
+                  </NavLink>
+                </MenuItem>
+                <MenuItem title={WOMAN.toUpperCase()} >
+                  <NavLink to="/mujer" activeClassName={styles.activeRoute}>
+                      <span>{WOMAN.toUpperCase()}</span>
+                  </NavLink>
+                </MenuItem>
+                <MenuItem title={COLLECTIONS.toUpperCase()} >
+                  <NavLink to="/colecciones" activeClassName={styles.activeRoute}>
+                      <span>{COLLECTIONS.toUpperCase()}</span>
+                  </NavLink>
+                </MenuItem>
+                <MenuItem  onClick={handleToggleSidebar}>
+                    <NavLink to="/nosotros">
+                    <span>{US.toUpperCase()}</span>
+                    </NavLink>
+                </MenuItem>
+                <MenuItem >
+                <NavLink to="/noticias">
+                    <span>{NEWS.toUpperCase()}</span>
+                    </NavLink>
+                </MenuItem>
+                <MenuItem >
+                <NavLink to="/contacto" activeClassName={styles.activeRoute}>
+              <span>{CONTACT.toUpperCase()}</span>
+            </NavLink>
+                </MenuItem>
             </Menu>
-            </ProSidebar>
+      </SidebarContent>
+
+      <SidebarFooter>
+          <Footer dataCompany={dataCompany} />
+      </SidebarFooter>
+    </ProSidebar>
       </>
     );
 }
