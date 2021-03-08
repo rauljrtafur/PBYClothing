@@ -46,7 +46,7 @@ const ProductDetail = ({ history, products, shoppingCart }: any) => {
       if (!response || response.length === 0) return
       const sizes = response.map(({ Cantidad, Talla, Id_Producto_Detalle }) => {
         return { Cantidad, Talla, Id_Producto_Detalle }
-      }).sort((a, b) => b.Talla.localeCompare(a.Talla))
+      });
       setSizesList(sizes)
       const dataProduct = {
         ...response[0]

@@ -253,7 +253,7 @@
         position: relative;
         .nav_list {
             margin-top: 0;
-            flex-direction: column;
+            flex-direction: row-reverse;
             align-items: center;
             height: auto !important;
             li {
@@ -263,25 +263,27 @@
         .pasarela_products {
             top: 100%;
             .pasarela_content {
-                flex-direction: column;
+                flex-direction: row-reverse;
             }
         }
     }
     .header_container {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: 84% 14% 12% !important;
         height: auto !important;
         width: 100% !important;
         .iconButtonMenu {
-            display: flex !important;
+            display: none !important;
         }
         .image_content {
             justify-content: center;
         }
         .navigation {
-            flex-direction: column !important;
+            display: none !important;
             .item_li {
+                display: none !important;
                 padding: 0 !important;
                 a {
+                    display: none !important;
                     padding: 0.3em 0 !important;
                     span {
                         margin: auto;
@@ -308,6 +310,31 @@
 /* Medium devices (landscape tablets, 768px and up) */
 
 @media only screen and (min-width: 768px) {
+    // .navigation {
+    //     list-style: none !important;
+    //     display: one;
+    //     justify-content: center;
+    //     .item_li {
+    //         display: none !important;
+    //         cursor: pointer;
+    //         padding: 0 15px;
+    //         &:last-child {
+    //             padding-right: 0 !important;
+    //         }
+    //         a {
+    //             text-decoration-line: none;
+    //             color: #a29c9c;
+    //             transition: color 0.4s ease 0s;
+    //             padding: 0 12px;
+    //             height: 100%;
+    //             display: none !important;
+    //             align-items: center;
+    //             &:hover {
+    //                 color: black;
+    //             }
+    //         }
+    //     }
+    // }
     .item_li {
         cursor: pointer;
         padding: 0 15px;
