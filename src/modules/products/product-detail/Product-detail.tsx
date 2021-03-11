@@ -148,7 +148,7 @@ const ProductDetail = ({ history, products, shoppingCart }: any) => {
           <div className={styles.main_data}>
             <span>Sexo: {dataProduct.Sexo}</span>
             <br />
-            <span>Colección: {dataProduct.Descripcion_Coleccion}</span>
+            <span>Colección: {dataProduct.Nombre_Coleccion}</span>
             <br />
             {dataProduct.Descripcion_Producto ? <span>Descripción: {dataProduct.Descripcion_Producto}</span> : null}
           </div>
@@ -194,15 +194,24 @@ const ProductDetail = ({ history, products, shoppingCart }: any) => {
         <h3>Productos relacionados</h3>
         {/* <h4>subtitle</h4> */}
       </div>
+      <div className={styles.related_productsMobile}> 
+          <ProductList list={relatedProductList.slice(0,2)} onClickItem={(sexo: string, id: number) => {
+            history.push({ pathname: `/${sexo.toLowerCase()}/${id}` })
+            window.scrollTo(0, 0)
+          }} />
+        </div> 
 
-      {/* <div className={styles.related_products}> */}
-      <ProductList list={relatedProductList.splice(0,2)} onClickItem={(sexo: string, id: number) => {
-        history.push({ pathname: `/${sexo.toLowerCase()}/${id}` })
-        window.scrollTo(0, 0)
-      }} />
-      {/* </div> */}
+
+        <div className={styles.related_productsDesktop}> 
+          <ProductList list={relatedProductList} onClickItem={(sexo: string, id: number) => {
+            history.push({ pathname: `/${sexo.toLowerCase()}/${id}` })
+            window.scrollTo(0, 0)
+          }} />
+        </div> 
 
     </div>
+
+    
   )
 }
 
