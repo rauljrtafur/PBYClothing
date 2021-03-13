@@ -34,7 +34,7 @@ export const ItemShoppingCart = (props: any) => {
 
       <div className={styles.body}>
         <div className={styles.header}>
-          <strong>{dataProduct.Nombre_Coleccion}</strong>
+          <strong>Producto</strong>
           <strong>Talla</strong>
           <strong>Cantidad</strong>
           <strong>Precio</strong>
