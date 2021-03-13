@@ -15,7 +15,8 @@
         position: relative;
         flex-direction: column;
         img {
-            max-width: 100%;
+            max-width: 120px;
+    height: 120px;
         }
     }
     .body {
@@ -130,11 +131,26 @@
 
 @media only screen and (max-width: 600px) {
     .container_item_shopping {
-        // grid-template-columns: 1fr !important;
+        display: grid;
+
+    grid-template-columns: 1fr !important;
+        // grid-template-columns: 120px auto;
+        // column-gap: 1.5em;
+        margin-bottom: 1em;
+        overflow: hidden;
         .image {
-            margin: auto;
+            width: 100%;
+            padding-right: 5.5em;
+            max-height: 455px;
+            max-height: 60vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            position: relative;
+            flex-direction: column;
             img {
-                width: 100%;
+                max-width: 150px;
+                height: 150px;
             }
         }
     }
