@@ -1,6 +1,14 @@
 .pro_sidebar {
-    color: black;
+    color: #000000;
     .pro-sidebar-inner {
         background: #ffffff !important;
+    }
+}
+
+.imgPBY {
+    padding-left: 5em;
+    img {
+        max-width: 95%;
+        height: 50px;
     }
 }

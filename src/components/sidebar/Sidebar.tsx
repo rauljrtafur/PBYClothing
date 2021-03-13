@@ -41,7 +41,7 @@ const Sidebar = ({toggled, handleToggleSidebar, dataCompany}) =>{
             whiteSpace: 'nowrap',
           }}
         >
-          MENÚ PITBULLYING
+          MENÚ
         </div>
       </SidebarHeader>
       <SidebarContent>
@@ -80,7 +80,9 @@ const Sidebar = ({toggled, handleToggleSidebar, dataCompany}) =>{
       </SidebarContent>
 
       <SidebarFooter>
-          <Footer dataCompany={dataCompany} />
+        <div className={styles.imgPBY}>
+          <img src={dataCompany.LogoEncabezado}  alt="" />
+        </div>
       </SidebarFooter>
     </ProSidebar>
       </>
