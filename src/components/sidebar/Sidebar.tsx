@@ -127,7 +127,7 @@ const dispatch = useDispatch();
                 <SubMenu title={MAN.toUpperCase()}>                 
 
                     {productTypes.map((item, i) => (
-                      <MenuItem>
+                      <MenuItem key={i}>
                         <NavLink key={i} to={`/${item.categoria?.toLowerCase()=='unisex'?'unisex?s='+MAN:item.categoria.toLowerCase()}`} className={styles.item_categoria} onClick={() => {
                                 // {item.subCategoria}
                               setFilterSubmenu(item.subCategoria)
@@ -140,7 +140,7 @@ const dispatch = useDispatch();
 
                 <SubMenu title={WOMAN.toUpperCase()}>
                   {productTypes.map((item, i) => (
-                      <MenuItem>
+                      <MenuItem key={i}>
                         <NavLink key={i} to={`/${item.categoria?.toLowerCase()=='unisex'?'unisex?s='+WOMAN:item.categoria.toLowerCase()}`} className={styles.item_categoria} onClick={() => {
                                 // {item.subCategoria}
                               setFilterSubmenu(item.subCategoria)
