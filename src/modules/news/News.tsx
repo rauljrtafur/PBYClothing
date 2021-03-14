@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react'
 import styles from './News.module.scss'
 import { ImageBanner } from '../../components'
 import encabezado from '../../assets/images_pby/Home/1.jpg'
-import Moment from 'react-moment';
-import 'moment/locale/es';
 
 import { connect } from 'react-redux'
 import { NEWS } from '../../consts/clothe-names'
 import { PbyService } from '../../services/pby-services'
 
- Moment.globalLocale = 'es';
- 
-Moment.globalLocal = true;
+
+function numericDate(string) {
+  let date = new Date(string);
+
+  return date.toLocaleDateString('es-CO', { year: "numeric", month: "long", day: "numeric", hour12:true })+ ",  " + date.toLocaleTimeString('es-CO');
+}
 
 const News = (props) => {
 
@@ -27,14 +28,7 @@ const News = (props) => {
     getItemsNews()
     selectMenu()
   }, [menu])
-
-
-   const convertISOStringToMonthDay = date => {
-  const tempDate = new Date(date).toString().split(' ');
-  const formattedDate = `${tempDate[1]} ${+tempDate[2]}`;
-  console.log(formattedDate);
-  return formattedDate;
-};
+ 
 
   const getItemsNews = () => {
     PbyService.getArticleBlog().then(itemNews => {
@@ -79,7 +73,7 @@ const News = (props) => {
 
               <h4>{item.Nombre_Articulo}</h4>
               <br />
-              <p> <Moment>{item.Fecha_Publicacion}</Moment></p>
+              <p> <strong>{numericDate(item.Fecha_Publicacion) }</strong> </p>
               <br />
               <p>{item.Descripcion_Articulo}</p>
 

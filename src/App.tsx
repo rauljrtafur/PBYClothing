@@ -98,7 +98,7 @@ const App = () => {
                 handleToggleSidebar={handleToggleSidebar}
                 dataCompany={dataCompany}
               />
-              </div>
+              </div> 
 
 
                 <Header logoEncabezado={dataCompany.LogoEncabezado} />
