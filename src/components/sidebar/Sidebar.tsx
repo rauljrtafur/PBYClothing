@@ -49,7 +49,7 @@ const targetRef = useRef();
         return { categoria: COLLECTIONS, subCategoria: item.Nombre_Coleccion, imagen: item.Image_Colecccion }
       })
       setprdtps(productTypesMp)
-      return
+      // return
    
 
     // Resto de categorias
