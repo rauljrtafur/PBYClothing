@@ -156,13 +156,9 @@ const targetRef = useRef();
                  <SubMenu title={COLLECTIONS.toUpperCase()}>
                   {prdtps.map((item, i) => (
                       <MenuItem key={i}>
-                        <NavLink key={i} to={`/${COLLECTIONS.toLowerCase}`}   className={styles.item_categoria} onClick={(e) => {
-                                // {item.subCategoria}
-                               e.preventDefault()
+                        <NavLink key={i} to={`/colecciones`}   className={styles.item_categoria} onClick={() => {
+                               
                               setFilterSubmenu(item.subCategoria)
-                              // setCollectionMenu(true);
-                              // setItemHover(COLLECTIONS)
-                              // setShowPasarela(false)
                             }}>{item.subCategoria}
                       </NavLink>
                    </MenuItem> ))}
