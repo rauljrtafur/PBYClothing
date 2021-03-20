@@ -13,8 +13,11 @@ import { addProductsAction, setFilterProductsAction, addArticlesAction, addMenuA
 
 const Sidebar = ({products, toggled, handleToggleSidebar, dataCompany}) =>{
 const [productTypes, setProductTypes] = useState<any[]>([])
+const [prdtps, setprdtps] = useState<any[]>([])
 const [itemHover, setItemHover] = useState('')
+const [stateCollectionMenu, setCollectionMenu] = useState(false)
 const dispatch = useDispatch();
+const targetRef = useRef();
 
  useEffect(() => {
     getAllProducts()
@@ -40,14 +43,14 @@ const dispatch = useDispatch();
     if (products.products.length === 0) return
 
     // filtro para colecciones
-    if (itemHover === COLLECTIONS) {
-      let productTypesMap: any[] = [...new Map(products.products.map(item => [item.Nombre_Coleccion, item])).values()];
-      productTypesMap = productTypesMap.map(item => {
+  
+      let productTypesMp: any[] = [...new Map(products.products.map(item => [item.Nombre_Coleccion, item])).values()];
+      productTypesMp = productTypesMp.map(item => {
         return { categoria: COLLECTIONS, subCategoria: item.Nombre_Coleccion, imagen: item.Image_Colecccion }
       })
-      setProductTypes(productTypesMap)
+      setprdtps(productTypesMp)
       return
-    }
+   
 
     // Resto de categorias
     let prodFilter
@@ -150,6 +153,21 @@ const dispatch = useDispatch();
                    </MenuItem> ))}
                 </SubMenu>
 
+                 <SubMenu title={COLLECTIONS.toUpperCase()}>
+                  {prdtps.map((item, i) => (
+                      <MenuItem key={i}>
+                        <NavLink key={i} to={`/${COLLECTIONS.toLowerCase}`}   className={styles.item_categoria} onClick={(e) => {
+                                // {item.subCategoria}
+                               e.preventDefault()
+                              setFilterSubmenu(item.subCategoria)
+                              // setCollectionMenu(true);
+                              // setItemHover(COLLECTIONS)
+                              // setShowPasarela(false)
+                            }}>{item.subCategoria}
+                      </NavLink>
+                   </MenuItem> ))}
+                </SubMenu>
+
                 {/* <MenuItem title={MAN.toUpperCase()} >
                   <NavLink to="/hombre" activeClassName={styles.activeRoute}>
                       <span>{MAN.toUpperCase()}</span>
@@ -160,11 +178,12 @@ const dispatch = useDispatch();
                       <span>{WOMAN.toUpperCase()}</span>
                   </NavLink>
                 </MenuItem> */}
-                <MenuItem title={COLLECTIONS.toUpperCase()} >
+                {/* <MenuItem title={COLLECTIONS.toUpperCase()} >
                   <NavLink to="/colecciones" activeClassName={styles.activeRoute}>
+                      
                       <span>{COLLECTIONS.toUpperCase()}</span>
                   </NavLink>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem  onClick={handleToggleSidebar}>
                     <NavLink to="/nosotros">
                     <span>{US.toUpperCase()}</span>
@@ -184,9 +203,9 @@ const dispatch = useDispatch();
       </SidebarContent>
 
       <SidebarFooter>
-        <div className={styles.imgPBY}>
+        {/* <div className={styles.imgPBY}>
           <img src={dataCompany.LogoEncabezado}  alt="" />
-        </div>
+        </div> */}
       </SidebarFooter>
     </ProSidebar>
       </>

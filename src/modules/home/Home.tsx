@@ -117,7 +117,7 @@ function Home(props) {
       {/* Input Subscribe */}
       <section className={styles.subscribe_container}>
         <div className={styles.content_subscribe}>
-          <h3>¡Suscribete!</h3>
+          <h3>¡Suscríbete!</h3>
 
           <ValidatorForm onSubmit={handleSubmit}>
             <TextValidator
