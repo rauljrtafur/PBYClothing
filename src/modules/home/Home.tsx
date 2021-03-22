@@ -58,7 +58,7 @@ function Home(props) {
   const handleSubmit = () => {
     PbyService.newsLetterRegister(form.firstName, form.lastName, form.email).then(response => {
       if (!response.status) {
-        console.log(response);
+        //(response);
         toast.error(response.Message)
         return
       }

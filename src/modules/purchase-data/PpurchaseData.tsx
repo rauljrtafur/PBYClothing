@@ -45,14 +45,31 @@ const PurchaseData = ({ history, products, session }: any) => {
     getPaises()
   }, [])
 
-  useEffect(() => {
+  useEffect( () => {
     if (!session.session || paises.length === 0) return
-    const { Email, FirstName, LastName, Phone, Address, DescriptionAddress, Country } = session.session
-    let countryFind
+    const { Email, FirstName, LastName, Phone, Address, DescriptionAddress, Country, City } = session.session
+    let countryFind, cityFind
     if (Country) {
 
       getCiudades(Country)
+      // //(Country);
       countryFind = paises.find(item => item.Value === Country)
+      // //(countryFind);
+    }
+
+    if(City){
+      // //(City, ciudades);
+
+      PbyService.getCities(Country).then(ciudades => {
+      // //(ciudades);
+       cityFind=ciudades.find(item=> item.Value == City)
+      //  changeValDataForm('CodigoCuidad', cityFind)
+       changeValSelectCity(cityFind)
+      //  //(cityFind);
+    })
+
+     
+      
     }
 
     setDataForm(
@@ -95,14 +112,20 @@ const PurchaseData = ({ history, products, session }: any) => {
     })
   }
 
-  const getCiudades = (countyCode: string) => {
+  const getCiudades =  (countyCode: string) => {
+    // //(countyCode);
     if (!countyCode) return
+     
     PbyService.getCities(countyCode).then(ciudades => {
+      // //(ciudades);
       setCiudades(ciudades)
     })
   }
 
+  
+
   const changeValDataForm = (name, value) => {
+    // //(value);
     const newDataForm = {
       ...dataForm,
       [name]: value
@@ -111,6 +134,7 @@ const PurchaseData = ({ history, products, session }: any) => {
   }
 
   const changeValSelectCity = (value) => {
+    // //(value);
     if (value != null) {
       let selectedUponDelivery = value.UponDelivery == "True" ?  true : false;
       setSelectCity(selectedUponDelivery)

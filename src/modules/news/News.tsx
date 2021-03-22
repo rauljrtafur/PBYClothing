@@ -32,7 +32,7 @@ const News = (props) => {
 
   const getItemsNews = () => {
     PbyService.getArticleBlog().then(itemNews => {
-      console.log(itemNews);
+      //(itemNews);
       setItemsNews(itemNews)
     })
   }

@@ -41,7 +41,7 @@ const RegisterModal = (props: any) => {
     }
     PbyService.register(registerData).then(response => {
       if (!response.status) {
-        console.log(response);
+        //(response);
         toast.error(response.Message)
         return
       }

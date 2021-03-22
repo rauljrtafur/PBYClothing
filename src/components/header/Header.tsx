@@ -59,10 +59,10 @@ const Header = (props) => {
     //     height: targetRef.current.offsetHeight
     //   });
 
-    //   console.log(targetRef.current.offsetWidth);
+    //   //(targetRef.current.offsetWidth);
     // }
 
-    console.log(wd);
+    //(wd);
 
     if (products.products.length === 0) return
 
@@ -78,19 +78,19 @@ const Header = (props) => {
 
     // Resto de categorias
     let prodFilter
-    console.log(itemHover, );
+    //(itemHover, );
     if (itemHover === BOY) {
       prodFilter = products.products.filter(item => item.Sexo === itemHover)
       
     } else {
       prodFilter = products.products.filter(item => item.Sexo === itemHover || item.Sexo === Unisex)
-      console.log(prodFilter);
+      //(prodFilter);
     }
 
 
     let productTypesMap: any[] = [...new Map(prodFilter.map(item => [item.Tipo_Producto, item])).values()];
     productTypesMap = productTypesMap.map(item => {
-      // console.log(`'categoria': ${item.Sexo}, 'subCategoria': ${item.Tipo_Producto}, 'imagen': ${item.Imagen_Tipo_Producto}`);
+      // //(`'categoria': ${item.Sexo}, 'subCategoria': ${item.Tipo_Producto}, 'imagen': ${item.Imagen_Tipo_Producto}`);
       return { categoria: item.Sexo, subCategoria: item.Tipo_Producto, imagen: item.Imagen_Tipo_Producto }
     })
 
@@ -141,7 +141,7 @@ const Header = (props) => {
   }
 
   const setFilterSubmenu = (param: string | null) => {
-    console.log(param);
+    //(param);
     dispatch(setFilterProductsAction(param))
   }
 

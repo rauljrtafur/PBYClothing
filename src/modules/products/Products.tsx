@@ -25,7 +25,7 @@ const Products = (props) => {
     let currentProduct = (history.location.pathname as string).split('/')[1];
      const query = new URLSearchParams(history.location.search);
     genreU=query.get('s');
-    console.log(currentProduct, menu,genreU, typeof genreU);
+    //(currentProduct, menu,genreU, typeof genreU);
     if (menu.menu.length > 0){
       applyFilterProducts(currentProduct);
     }
@@ -39,7 +39,7 @@ const Products = (props) => {
 
     if (currentProduct === COLLECTIONS.toLowerCase()) {
       const newProducts = products.products.filter(item => (item.Nombre_Coleccion as string) === products.filter)
-      console.log(newProducts);
+      //(newProducts);
       setProductsList(newProducts)
       if (newProducts[0]) setNameCollection(newProducts[0])
     } else {
@@ -53,7 +53,7 @@ const Products = (props) => {
   const applyFilterProducts = (param: string) => {
     let filter = ''
     let filter2 = ''
-    console.log(param);
+    //(param);
     switch (param) {
       case MAN.toLowerCase():
         filter = MAN
@@ -68,7 +68,7 @@ const Products = (props) => {
         break;
       case COLLECTIONS.toLowerCase():
         filter = COLLECTIONS
-        console.log(products.products);
+        //(products.products);
         setProductsList(products.products)
         break;
       default:
@@ -89,9 +89,9 @@ const Products = (props) => {
     let menuFind ='';
     menuFind=menu.menu.find(item => item.Nombre_Menu === filter)==undefined?menu.menu.find(item => item.Nombre_Menu === genreU):menu.menu.find(item => item.Nombre_Menu === filter);
   
-     console.log(menuFind , menu.menu, filter);
+     //(menuFind , menu.menu, filter);
     if (menuFind) {
-      console.log(menuFind);
+      //(menuFind);
       setMenuSelected(menuFind);
     }
 

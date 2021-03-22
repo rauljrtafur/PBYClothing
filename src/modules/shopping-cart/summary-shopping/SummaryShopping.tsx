@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux'
 import { connect } from 'react-redux'
 import NumberFormat from 'react-number-format';
 
-const SummaryShopping = ({ history, showConditions = true, totalPrice = 0, promotionalCode, onBuy, promDisabled = false, email, onCitySelected, shippingPrice = 0 }: any) => {
+const SummaryShopping = ({ history, showConditions = true, totalPrice = 0, promotionalCode, onBuy, promDisabled = false, email, onCitySelected=true, shippingPrice = 0 }: any) => {
 
   const dispatch = useDispatch()
 

@@ -30,7 +30,7 @@ function Slider({ items, history }) {
           key={i} 
           data-src={item.Imagen}
           onClick={() => {
-                console.log(item);
+                //(item);
                 if (!item.Genero && !item.Coleccion) {
                   window.location.replace(item.Url)
                   return
@@ -66,7 +66,7 @@ function Slider({ items, history }) {
               key={i}
               className={styles.slider_container}
               onClick={() => {
-                console.log(item);
+                //(item);
                 if (!item.Genero && !item.Coleccion) {
                   window.location.replace(item.Url)
                   return

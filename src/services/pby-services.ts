@@ -14,7 +14,7 @@ const getAllProducts = () => {
       return resolveResponse(response)
     })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -25,7 +25,7 @@ const getAllArticles = () => {
       return resolveResponse(response)
     })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -36,7 +36,7 @@ const getMenu = () => {
       return resolveResponse(response)
     })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -47,7 +47,7 @@ const getProductDetail = (Id: string) => {
       return resolveResponse(response)
     })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -58,7 +58,7 @@ const getSocialNetwork = () => {
       return resolveResponse(response)
     })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -69,7 +69,7 @@ const getArticleBlog = () => {
       return resolveResponse(response)
     })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -80,7 +80,7 @@ const getFooterMenu = () => {
       return resolveResponse(response)
     })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -91,7 +91,7 @@ const getFooterDataCompany = () => {
       return resolveResponse(response)
     })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -102,7 +102,7 @@ const getCountries = (countrySearch: string) => {
       return resolveResponse(response)
     })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -113,7 +113,7 @@ const getCities = (countyCode: string) => {
       return resolveResponse(response)
     })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -123,7 +123,7 @@ const OrderBuyHistoryByPerson = (Id) => {
       return resolveResponse(response)
     })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -134,7 +134,7 @@ const listProductByOrderBuy = (Id) => {
       return resolveResponse(response)
     })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -145,7 +145,7 @@ const validationCode = (code: string, Email: string) => {
       return resolveResponse(response)
     })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -156,7 +156,7 @@ const login = (Identification: string, password: string) => {
       return resolveResponse(response)
     })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -167,7 +167,7 @@ const newsLetterRegister = (FirstName: string, LastName: string, Email: string) 
       return resolveResponse(response)
     })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -177,7 +177,7 @@ const register = (registerData) => {
     return resolveResponse(response)
   })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -187,7 +187,7 @@ const updatePerson = (person) => {
     return resolveResponse(response)
   })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -197,7 +197,7 @@ const sendContact = (contact) => {
     return resolveResponse(response)
   })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
@@ -233,7 +233,7 @@ const newOrderBuy = (DatosFactura: any) => {
       return resolveResponse(response)
     })
     .catch(error => {
-      console.log(error);
+      //(error);
       toast.error(error.message);
     })
 }
