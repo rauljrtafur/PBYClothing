@@ -13,6 +13,8 @@ import { addProductsAction, setFilterProductsAction, addArticlesAction, addMenuA
 
 const Sidebar = ({products, toggled, handleToggleSidebar, dataCompany}) =>{
 const [productTypes, setProductTypes] = useState<any[]>([])
+const [productsTypesMan, setProductsTypesMan] = useState<any[]>([])
+const [productsTypesWoman, setProductsTypesWoman] = useState<any[]>([])
 const [prdtps, setprdtps] = useState<any[]>([])
 const [itemHover, setItemHover] = useState('')
 const [stateCollectionMenu, setCollectionMenu] = useState(false)
@@ -59,8 +61,9 @@ const targetRef = useRef();
       prodFilter = products.products.filter(item => item.Sexo === itemHover)
       
     } else {
+      // console.log(itemHover);
       prodFilter = products.products.filter(item => item.Sexo === itemHover || item.Sexo === Unisex)
-      //(prodFilter);
+      // console.log(prodFilter);
     }
 
 
@@ -70,7 +73,15 @@ const targetRef = useRef();
       return { categoria: item.Sexo, subCategoria: item.Tipo_Producto, imagen: item.Imagen_Tipo_Producto }
     })
 
-    setProductTypes(productTypesMap)
+    if(itemHover==MAN){
+     setProductsTypesMan(productTypesMap);
+    }
+    else if(itemHover==WOMAN){
+      setProductsTypesWoman(productTypesMap);
+    }
+    else{
+    setProductTypes(productTypesMap);
+  }
   }, [products, itemHover])
 
     const getAllProducts = () => {
@@ -95,7 +106,7 @@ const targetRef = useRef();
   }
 
  const setFilterSubmenu = (param: string | null) => {
-    //(param);
+    // console.log(param);
     dispatch(setFilterProductsAction(param))
   }
 
@@ -127,9 +138,11 @@ const targetRef = useRef();
       <SidebarContent>
             <Menu iconShape="circle">
 
-                <SubMenu title={MAN.toUpperCase()}>                 
+                <SubMenu title={MAN.toUpperCase()} onClick={()=>{
+                   setItemHover(MAN)
+                }}>                 
 
-                    {productTypes.map((item, i) => (
+                    {productsTypesMan.map((item, i) => (
                       <MenuItem key={i}>
                         <NavLink key={i} to={`/${item.categoria?.toLowerCase()=='unisex'?'unisex?s='+MAN:item.categoria.toLowerCase()}`} className={styles.item_categoria} onClick={() => {
                                 // {item.subCategoria}
@@ -141,8 +154,10 @@ const targetRef = useRef();
                  
                 </SubMenu>
 
-                <SubMenu title={WOMAN.toUpperCase()}>
-                  {productTypes.map((item, i) => (
+                <SubMenu title={WOMAN.toUpperCase()} onClick={()=>{
+                   setItemHover(WOMAN)
+                }}>
+                  {productsTypesWoman.map((item, i) => (
                       <MenuItem key={i}>
                         <NavLink key={i} to={`/${item.categoria?.toLowerCase()=='unisex'?'unisex?s='+WOMAN:item.categoria.toLowerCase()}`} className={styles.item_categoria} onClick={() => {
                                 // {item.subCategoria}
@@ -157,8 +172,7 @@ const targetRef = useRef();
                   {prdtps.map((item, i) => (
                       <MenuItem key={i}>
                         <NavLink key={i} to={`/colecciones`}   className={styles.item_categoria} onClick={() => {
-                               
-                              setFilterSubmenu(item.subCategoria)
+                               setFilterSubmenu(item.subCategoria)
                             }}>{item.subCategoria}
                       </NavLink>
                    </MenuItem> ))}

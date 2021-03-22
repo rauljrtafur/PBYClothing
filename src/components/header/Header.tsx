@@ -84,7 +84,7 @@ const Header = (props) => {
       
     } else {
       prodFilter = products.products.filter(item => item.Sexo === itemHover || item.Sexo === Unisex)
-      //(prodFilter);
+    //  console.log(prodFilter);
     }
 
 
