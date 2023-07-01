@@ -2,7 +2,7 @@
 
 .social_networks_container {
   // background-color: rgba(20, 20, 20, 1);
-  background-color: black;
+  background-color: white;
   color: rgb(162, 156, 156);
   overflow: hidden;
 
@@ -78,8 +78,7 @@
 
 .footer {
   // background-color: rgba(162, 156, 156, 0.15);
-  background-color: rgba(20, 20, 20, 1);
-  color: white;
+  background-color: white;
   box-shadow: 0px 0px 5px 0px rgba(2, 2, 2, 0.7);
   border-top: 0px solid rgba(255, 255, 255, 1);
   border-bottom: 0px solid rgba(255, 255, 255, 1);
@@ -107,7 +106,6 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  
 }
 
 /* Medium devices (landscape tablets, 768px and up) */

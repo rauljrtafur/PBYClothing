@@ -1,54 +1,65 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import styles from './Footer.module.scss'
-import { FaLocationArrow, FaPhone, FaFacebookF, FaInstagram, FaPinterestP, FaYoutube, FaTwitter, FaMailBulk } from 'react-icons/fa';
-import { AiOutlineSchedule } from 'react-icons/ai';
-import { PbyService } from '../../services/pby-services';
-import TermsAndConditionsModal from '../termsAndConditionsModal/termsAndConditionsModal';
-
+import React, { Fragment, useEffect, useState } from "react";
+import styles from "./Footer.module.scss";
+import {
+  FaLocationArrow,
+  FaPhone,
+  FaFacebookF,
+  FaInstagram,
+  FaPinterestP,
+  FaYoutube,
+  FaTwitter,
+  FaMailBulk,
+} from "react-icons/fa";
+import { AiOutlineSchedule } from "react-icons/ai";
+import { PbyService } from "../../services/pby-services";
+import TermsAndConditionsModal from "../termsAndConditionsModal/termsAndConditionsModal";
 
 const Footer = ({ dataCompany }) => {
-
   // const [footerData, setFooterData] = useState({})
 
-  const [socialNetworks, setSocialNetworks] = useState<any[]>([])
-  const [footerMenu, setFooterMenu] = useState<any[]>([])
-  const [showTermsConditionsModal, setShowTermsConditionsModal] = useState<boolean>(false)
-  const [contentTerms, setContentTerms] = useState<String>('')
+  const [socialNetworks, setSocialNetworks] = useState<any[]>([]);
+  const [footerMenu, setFooterMenu] = useState<any[]>([]);
+  const [showTermsConditionsModal, setShowTermsConditionsModal] =
+    useState<boolean>(false);
+  const [contentTerms, setContentTerms] = useState<String>("");
 
   useEffect(() => {
-    getFooterData()
-    getFooter()
-  }, [])
+    getFooterData();
+    getFooter();
+  }, []);
 
   const getFooter = () => {
-    PbyService.getFooterMenu().then(data => {
-      if (!data) return
-      setFooterMenu(data)
-    })
-  }
+    PbyService.getFooterMenu().then((data) => {
+      if (!data) return;
+      setFooterMenu(data);
+    });
+  };
 
   const getFooterData = () => {
-    PbyService.getSocialNetwork().then(data => {
-      if (!data) return
-      setSocialNetworks(data)
-    })
-  }
+    PbyService.getSocialNetwork().then((data) => {
+      if (!data) return;
+      setSocialNetworks(data);
+    });
+  };
 
   const openSocialNetwork = (path: string) => {
-    if (!path) return
+    if (!path) return;
     window.open(path);
-  }
+  };
 
   const handleTermsClick = (content) => {
-    setShowTermsConditionsModal(true)
-    setContentTerms(content)
-  }
+    setShowTermsConditionsModal(true);
+    setContentTerms(content);
+  };
 
   return (
     <Fragment>
-      <TermsAndConditionsModal show={showTermsConditionsModal}
+      <TermsAndConditionsModal
+        show={showTermsConditionsModal}
         onClosed={() => setShowTermsConditionsModal(false)}
-        openRegisterModal={() => setShowTermsConditionsModal(true)} content={contentTerms} />
+        openRegisterModal={() => setShowTermsConditionsModal(true)}
+        content={contentTerms}
+      />
       {/* Redes Sociales */}
       <section className={styles.social_networks_container}>
         <div className={styles.social_content}>
@@ -63,9 +74,7 @@ const Footer = ({ dataCompany }) => {
               <div className={styles.icon_content}>
                 <AiOutlineSchedule size="1.4em" />
               </div>
-              <div>
-                {dataCompany.Horario}
-              </div>
+              <div>{dataCompany.Horario}</div>
             </div>
             <div className={styles.content_info}>
               <div className={styles.icon_content}>
@@ -83,19 +92,43 @@ const Footer = ({ dataCompany }) => {
           <div className={styles.contact}>
             <div className={styles.icons}>
               {socialNetworks.map((item, i) => {
-                if (item.Name === 'Facebook')
-                  return (<FaFacebookF key={i} onClick={() => openSocialNetwork(item.URL)} />)
-                if (item.Name === 'Instagram')
-                  return (<FaInstagram key={i} onClick={() => openSocialNetwork(item.URL)} />)
-                if (item.Name === 'Pinterest')
-                  return (<FaPinterestP key={i} onClick={() => openSocialNetwork(item.URL)} />)
-                if (item.Name === 'Youtube')
-                  return (<FaYoutube key={i} onClick={() => openSocialNetwork(item.URL)} />)
-                if (item.Name === 'Twitter')
-                  return (<FaTwitter key={i} onClick={() => openSocialNetwork(item.URL)} />)
-                return null
-              }
-              )}
+                if (item.Name === "Facebook")
+                  return (
+                    <FaFacebookF
+                      key={i}
+                      onClick={() => openSocialNetwork(item.URL)}
+                    />
+                  );
+                if (item.Name === "Instagram")
+                  return (
+                    <FaInstagram
+                      key={i}
+                      onClick={() => openSocialNetwork(item.URL)}
+                    />
+                  );
+                if (item.Name === "Pinterest")
+                  return (
+                    <FaPinterestP
+                      key={i}
+                      onClick={() => openSocialNetwork(item.URL)}
+                    />
+                  );
+                if (item.Name === "Youtube")
+                  return (
+                    <FaYoutube
+                      key={i}
+                      onClick={() => openSocialNetwork(item.URL)}
+                    />
+                  );
+                if (item.Name === "Twitter")
+                  return (
+                    <FaTwitter
+                      key={i}
+                      onClick={() => openSocialNetwork(item.URL)}
+                    />
+                  );
+                return null;
+              })}
               {/* <FaFacebookF /><FaInstagram /><FaPinterestP /><FaYoutube /><FaTwitter /> */}
             </div>
 
@@ -106,7 +139,6 @@ const Footer = ({ dataCompany }) => {
                 </p>
               ))}
             </div>
-
           </div>
           <div className={styles.logo}>
             <img src={dataCompany.Logo} alt="" />
@@ -119,7 +151,7 @@ const Footer = ({ dataCompany }) => {
         </div>
       </footer>
     </Fragment>
-  )
-}
+  );
+};
 
 export default Footer;
