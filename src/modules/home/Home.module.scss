@@ -33,8 +33,10 @@
 .image_container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 8px;
-  margin: 8px 0;
+  grid-gap: 0;
+  margin: 0;
+  margin-top: 30px;
+  margin-bottom: 8px;
   // grid-gap: 6px;
   // margin: 6px 0;
 
@@ -190,6 +192,26 @@
         }
       }
     }
+  }
+}
+
+.featured_title {
+  text-align: center;
+  margin-top: 3em;
+  font-weight: 400;
+  font-style: normal;
+  color: #5c5c5c;
+
+  h3 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+  }
+
+  h4 {
+    font-size: 15px;
+    margin-top: 10px;
   }
 }
 

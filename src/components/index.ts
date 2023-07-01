@@ -8,18 +8,22 @@ import { ProductList } from "./product-list/ProductList";
 import ImageBanner from "./image-banner/ImageBanner";
 import RegisterModal from "./register-modal/Register-modal";
 import ImageCustomModal from "./image-custom-modal/ImageCustomModal";
-import Sidebar from './sidebar/Sidebar'
+import Sidebar from "./sidebar/Sidebar";
+import SmallBanner from "./small-banner/Small-banner";
+import ProductsFeatured from "./products-featured/ProductsFeatured";
 
 export {
-    Header,
-    Footer,
-    Slider,
-    FormRegisterModal,
-    Contact,
-    LoginModal,
-    ProductList,
-    ImageBanner,
-    RegisterModal,
-    ImageCustomModal,
-    Sidebar
-}
+  Header,
+  Footer,
+  Slider,
+  FormRegisterModal,
+  Contact,
+  LoginModal,
+  ProductList,
+  ImageBanner,
+  RegisterModal,
+  ImageCustomModal,
+  Sidebar,
+  SmallBanner,
+  ProductsFeatured,
+};

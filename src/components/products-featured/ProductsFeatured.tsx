@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./ProductList.module.scss";
+import styles from "./ProductsFeatured.module.scss";
 import { Button } from "@material-ui/core";
 import NumberFormat from "react-number-format";
 import { getPrecioConDescuento } from "../../shared/utils";
 
-export function ProductList({ list = [], onClickItem }: any) {
+export function ProductsFeatured({ list = [], onClickItem }: any) {
   const getFistImage = (images: string) => {
     if (!images) return "";
     const img = images.split(",")[0];
@@ -80,3 +80,5 @@ export function ProductList({ list = [], onClickItem }: any) {
     </div>
   );
 }
+
+export default ProductsFeatured;

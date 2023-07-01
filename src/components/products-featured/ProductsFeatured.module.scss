@@ -1,9 +1,9 @@
 .list_products_container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 1em;
   row-gap: 2em;
-  margin: 2em 0;
+  padding: 1em;
   .item_product {
     .image_product {
       cursor: pointer;
@@ -34,7 +34,7 @@
       }
       &:hover {
         img {
-          transform: scale(1.2);
+          transition: all 0.7s ease;
 
           &:nth-child(1) {
             display: none;
@@ -64,7 +64,6 @@
       flex-direction: column;
       font-size: 14px;
       line-height: 1.5;
-
       .prices {
         display: flex;
         justify-content: space-between;
